@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+// Define a callback function type
+typedef void (*CallbackFunc)(int);
+
+// Function that takes a callback function as an argument
+void performOperation(int value, CallbackFunc callback) {
+    printf("Performing operation with value %d...\n", value);
+    callback(value);
+}
+
+// Callback function 1
+void callback1(int value) {
+    printf("Callback 1 executed with value: %d\n", value * 2);
+}
+
+// Callback function 2
+void callback2(int value) {
+    printf("Callback 2 executed with value: %d\n", value + 5);
+}
+
+int main() {
+    // Using callback function 1
+    performOperation(10, callback1);
+
+    // Using callback function 2
+    performOperation(20, callback2);
+
+    return 0;
+}
